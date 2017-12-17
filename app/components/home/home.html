@@ -1,0 +1,74 @@
+<div class="text-center">
+    <h3 class="title-label">
+        {{vm.welcomeMessage}}
+    </h3>
+    <br>
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="title text-left h4">Record description</div>
+            <p class="text-left h5">
+                The format of the file is a simplified version of the MT940 format.
+            </p>
+        </div>
+        <div class="panel-body table-responsive">            
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-left">
+                            Transaction reference
+                        </td>
+                        <td class="text-left">
+                            A numeric value
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            Account number
+                        </td>
+                        <td class="text-left">
+                            An IBAN
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            Start Balance
+                        </td>
+                        <td class="text-left">
+                            The starting balance in Euros
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            Mutation
+                        </td>
+                        <td class="text-left">
+                            Either an addition (+) or a deduction (-)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            Description
+                        </td>
+                        <td class="text-left">
+                            Free text
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            End Balance
+                        </td>
+                        <td class="text-left">
+                            The end balance in Euros
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

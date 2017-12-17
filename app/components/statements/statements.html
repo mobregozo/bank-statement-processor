@@ -1,0 +1,71 @@
+<div class="text-center statement-container">
+    <h3 class="title-label">
+        Statement Processor
+    </h3>
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-heading text-left">
+            <div class="btn btn-success">
+                <input type="file" file-handler="vm.handleFileContent(file, error)">
+            </div>           
+        </div>
+        <div class="panel-body table-statements table-responsive table-bordered" ng-if="vm.table.fileSelected">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <td class="text-left header-item" ng-click="vm.table.orderBy = 'record.reference'">
+                        Reference
+                        <span ng-show="vm.table.orderBy == 'record.reference'" class="fa fa-caret-down"></span>
+                    </td>
+                    <td class="text-left header-item" ng-click="vm.table.orderBy = 'record.accountNumber'">
+                        Account Number
+                        <span ng-show="vm.table.orderBy == 'record.accountNumber'" class="fa fa-caret-down"></span>
+                    </td>
+                    <td class="text-left header-item" ng-click="vm.table.orderBy = 'record.description'">
+                        Description
+                        <span ng-show="vm.table.orderBy == 'record.description'" class="fa fa-caret-down"></span>
+                    </td>
+                    <td class="text-left header-item" ng-click="vm.table.orderBy = 'record.startBalance'">
+                        Start Balance
+                        <span ng-show="vm.table.orderBy == 'record.startBalance'" class="fa fa-caret-down"></span>
+                    </td>
+                    <td class="text-left header-item" ng-click="vm.table.orderBy = 'record.mutation'">
+                        Mutation
+                        <span ng-show="vm.table.orderBy == 'record.mutation'" class="fa fa-caret-down"></span>
+                    </td>
+                    <td class="text-left header-item" ng-click="vm.table.orderBy = 'record.endBalance'">
+                        End Balance
+                        <span ng-show="vm.table.orderBy == 'record.endBalance'" class="fa fa-caret-down"></span>
+                    </td>
+                </thead>
+                <tr ng-repeat-start="s in vm.table.statementsList | orderBy: vm.table.orderBy" ng-class="{'danger':s.errors.length>0}">
+                    <td class="text-left">{{s.record.reference}}</td>
+                    <td class="text-left">{{s.record.accountNumber}}</td>
+                    <td class="text-left">{{s.record.description}}</td>
+                    <td class="text-left">{{s.record.startBalance}}</td>
+                    <td class="text-left">{{s.record.mutation}}</td>
+                    <td class="text-left">{{s.record.endBalance}}</td>
+                    <td class="text-left">
+                        <span ng-if="s.errors.length>0" ng-click="s.showError=!s.showError" class="btn label label-danger">
+                            <i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{s.showError? 'Hide':'See'}} Errors
+                        </span>
+                    </td>
+                </tr>
+                <tr ng-repeat-end ng-if="s.showError">
+                    <td colspan="7"class="text-left">
+                        <div class="text-danger" ng-repeat="error in s.errors">
+                            &#8226; {{error}}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="panel-body table-statements" ng-if="!vm.table.fileSelected && !vm.table.fileError">
+            <h3>Upload a file</h3>
+        </div>
+        <div class="panel-body">
+            <div data-ng-show="vm.table.fileError" class="alert alert-danger">
+                <strong>Error:</strong> The file that you are trying to upload is not valid.
+            </div>
+        </div>
+    </div>
+</div>

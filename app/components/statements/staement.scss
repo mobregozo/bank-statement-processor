@@ -1,0 +1,20 @@
+
+.statement-container{
+    .table-statements {
+        background: white;
+        padding: 20px;
+        .icon {
+            margin-top: 3px;
+        }
+        .header-item{
+            font-weight: bold;
+            &:hover{
+                cursor: pointer;
+                opacity: 0.6;
+            }
+        }
+    }
+    input{
+        font-size: 12px;
+    }
+}
