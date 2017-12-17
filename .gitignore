@@ -5,3 +5,4 @@ app/assets/lib/
 test-results
 e2e-test-result.json
 .DS_store
+app/assets/css/
